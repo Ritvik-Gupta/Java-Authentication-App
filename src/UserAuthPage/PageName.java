@@ -14,7 +14,7 @@ public enum PageName {
    }
 
    public String asForm() {
-      return " " + value + " Form ";
+      return padded() + "Form ";
    }
 
    @Override

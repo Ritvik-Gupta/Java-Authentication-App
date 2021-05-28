@@ -72,7 +72,7 @@ public final class ResetPasswordPage extends UserAuthPage {
       otp = null;
    }
 
-   private String generateOtp() {
+   private static String generateOtp() {
       Random randomGen = new Random();
       IntStream otpStream = randomGen.ints(6, 0, 10);
       return otpStream.mapToObj(Integer::toString).reduce("", String::concat);
