@@ -1,4 +1,4 @@
-package src.UserAuthPage;
+package src.AuthUserPage;
 
 import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ import src.PostgresConn;
 import src.ModalDialog.ColorCode;
 import src.ModalDialog.ModalDialog;
 
-public final class ResetPasswordPage extends UserAuthPage {
+public final class ResetPasswordPage extends AuthUserPage {
    private String otp = null;
    private final JButton generateOtpButton;
    private final JLabel nameLabel;

@@ -11,12 +11,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import src.UserAuthPage.PageName;
-import src.UserAuthPage.ResetPasswordPage;
-import src.UserAuthPage.SignInPage;
-import src.UserAuthPage.SignUpPage;
+import src.AuthUserPage.PageName;
+import src.AuthUserPage.ResetPasswordPage;
+import src.AuthUserPage.SignInPage;
+import src.AuthUserPage.SignUpPage;
 
-public final class UserAuthFrame extends JFrame {
+public final class AuthUserFrame extends JFrame {
    private final JTabbedPane tabbedPane = new JTabbedPane();
    private final JButton backButton = new JButton();
    private final Runnable backEvent = () -> {
@@ -36,7 +36,7 @@ public final class UserAuthFrame extends JFrame {
       }
    }
 
-   public UserAuthFrame() {
+   public AuthUserFrame() {
       setName("Salamander's Authentication Interface");
 
       tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);

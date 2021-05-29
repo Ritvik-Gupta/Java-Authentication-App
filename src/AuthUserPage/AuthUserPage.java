@@ -1,4 +1,4 @@
-package src.UserAuthPage;
+package src.AuthUserPage;
 
 import java.awt.event.ActionListener;
 
@@ -7,11 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-public abstract class UserAuthPage extends JPanel implements ActionListener {
+public abstract class AuthUserPage extends JPanel implements ActionListener {
    protected final Runnable cleanupEvent;
    protected final JButton submitButton;
 
-   public UserAuthPage(Runnable cleanupEvent, PageName pageName) {
+   public AuthUserPage(Runnable cleanupEvent, PageName pageName) {
       this.cleanupEvent = cleanupEvent;
 
       submitButton = new JButton(pageName.toString());

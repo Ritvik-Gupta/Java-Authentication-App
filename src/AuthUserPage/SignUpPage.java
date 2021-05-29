@@ -1,4 +1,4 @@
-package src.UserAuthPage;
+package src.AuthUserPage;
 
 import java.awt.event.ActionEvent;
 import java.sql.ResultSet;

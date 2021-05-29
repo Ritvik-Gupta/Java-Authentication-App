@@ -1,4 +1,4 @@
-package src.UserAuthPage;
+package src.AuthUserPage;
 
 import java.awt.event.ActionEvent;
 
@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public abstract class AuthSignPage extends UserAuthPage {
+public abstract class AuthSignPage extends AuthUserPage {
    protected final JLabel nameLabel;
    protected final JTextField nameField;
    protected final JLabel passwordLabel;

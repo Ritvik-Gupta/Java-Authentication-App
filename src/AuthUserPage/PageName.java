@@ -1,4 +1,4 @@
-package src.UserAuthPage;
+package src.AuthUserPage;
 
 public enum PageName {
    HOME("Home Page"), SIGN_IN("Sign In"), SIGN_UP("Sign Up"), RESET_PASSWORD("Reset Password");
