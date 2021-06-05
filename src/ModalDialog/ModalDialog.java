@@ -5,6 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.border.EmptyBorder;
 
 //* Modal Dialog for displaying additional information
 public final class ModalDialog extends JDialog {
@@ -16,6 +17,7 @@ public final class ModalDialog extends JDialog {
       JLabel contentLabel = new JLabel(content);
       contentLabel.setForeground(code.color);
       contentLabel.setFont(new Font("Courier New", Font.BOLD, 17));
+      contentLabel.setBorder(new EmptyBorder(30, 20, 30, 20));
 
       add(contentLabel);
       pack();
