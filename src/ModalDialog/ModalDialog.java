@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
+//* Modal Dialog for displaying additional information
 public final class ModalDialog extends JDialog {
    private ModalDialog(String title, String content, ColorCode code) {
       setTitle(title);
@@ -20,6 +21,7 @@ public final class ModalDialog extends JDialog {
       pack();
    }
 
+   //* Create and Show (Visibility) as a Popup
    public static void show(String title, String content, ColorCode code) {
       new ModalDialog(title, content, code).setVisible(true);
    }

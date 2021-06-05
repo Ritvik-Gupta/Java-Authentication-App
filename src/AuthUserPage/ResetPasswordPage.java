@@ -1,6 +1,5 @@
 package src.AuthUserPage;
 
-import java.awt.event.ActionEvent;
 import java.sql.ResultSet;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -11,7 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import src.Hashing;
-import src.PostgresConn;
+import src.SQLConn;
 import src.ModalDialog.ColorCode;
 import src.ModalDialog.ModalDialog;
 
@@ -79,38 +78,50 @@ public final class ResetPasswordPage extends AuthUserPage {
    }
 
    @Override
-   public void actionPerformed(ActionEvent event) {
-      PostgresConn.instance.with(stmt -> {
+   public void action() {
+      SQLConn.instance.with(stmt -> {
          String name = nameField.getText();
+         //? Select number of Auth-Users with a specific name in the DB
+         //? Name of User is a primary key so there is 1 or no Auth-User with the specified name
          ResultSet result = stmt.query("SELECT COUNT(*) FROM auth_user WHERE name = '%s'", name);
 
          result.next();
+         //? If there is no Auth-User with the specified name
          if (result.getInt("count") == 0) {
             clear();
+            //* Restart and Clean up
             cleanupEvent.run();
+            //* Show an Error Modal Dialog
             ModalDialog.show(
                "Invalid User Name", 
                "User Information not found. User does not exist",
                ColorCode.ERROR
             );
          } else {
+            //? If the OTP entered is Invalid
             if(!otpField.getText().equals(otp)) {
                clear();
+               //* Restart and Clean up
                cleanupEvent.run();
+               //* Show an Error Modal Dialog
                ModalDialog.show(
                   "Incorrect OTP specified", 
                   "OTP entered does not match the actual OTP",
                   ColorCode.ERROR
                );
             } else {
+               //? Update the Auth-User and reset the password field
                stmt.mutation(
                   "UPDATE auth_user SET password = '%s' WHERE name = '%s'",
+                  //? Update with the Hashed Password for security
                   Hashing.apply(passwordField.getPassword()),
                   name
                );
 
                clear();
+               //* Submit and Clean up
                cleanupEvent.run();
+               //* Show a Success Modal Dialog
                ModalDialog.show(
                   "Successfully Updated the Password", 
                   "Password has been Updated successfully " + name.toUpperCase(),

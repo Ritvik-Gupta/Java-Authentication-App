@@ -1,12 +1,12 @@
 package src.AuthUserPage;
 
-import java.awt.event.ActionEvent;
-
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+//* Abstract Authentication Sign Page including Sign In and Sign Up
 public abstract class AuthSignPage extends AuthUserPage {
+   //* Sign Pages must have User Inputs for name and password
    protected final JLabel nameLabel;
    protected final JTextField nameField;
    protected final JLabel passwordLabel;
@@ -33,10 +33,10 @@ public abstract class AuthSignPage extends AuthUserPage {
    }
 
    @Override
-   public void actionPerformed(ActionEvent event) {
+   public void action() {
       System.out.println();
-      System.out.println("Name :\t" + nameField.getText());
-      System.out.println("Password :\t" + new String(passwordField.getPassword()));
+      System.out.println("User Name :\t'" + nameField.getText() + "'");
+      System.out.println("Password :\t'" + new String(passwordField.getPassword()) + "'");
       System.out.println();
    }
 }

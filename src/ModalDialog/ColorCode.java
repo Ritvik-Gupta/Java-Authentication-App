@@ -2,6 +2,7 @@ package src.ModalDialog;
 
 import java.awt.Color;
 
+//* Static Members for each specific RGB Color Codes
 public enum ColorCode {
    SUCCESS(new Color(34, 139, 34)), NEUTRAL(new Color(112, 128, 144)), ERROR(new Color(220, 20, 60));
 
